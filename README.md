@@ -35,35 +35,9 @@ Tablero de Hilos: Estados de threads (RUNNABLE, BLOCKED, TIMED_WAITING, TERMINAT
 Monitor BPMN: Estados detallados por tipo de agente
 Log de Eventos: Registro completo de todas las acciones
 
-
-Arquitectura del Sistema
-Componentes Principales
-ParaGym/
-├── ParaGym.java              # Ventana principal y configuración
-├── SimulationController.java # Controlador de la simulación
-├── Agentes/
-│   ├── Cliente.java          # Agente cliente con libre albedrío
-│   ├── Limpieza.java         # Agente de limpieza
-│   ├── Instructor.java       # Agente instructor
-│   └── Recepcionista.java    # Agente recepcionista
-├── Recursos/
-│   ├── Buffer.java           # Buffer sincronizado (productor-consumidor)
-│   ├── Torniquete.java       # Zona crítica de entrada
-│   ├── Maquina.java          # Zona crítica de máquinas
-│   └── ClaseGrupo.java       # Sincronización de clase grupal
-├── Visualización/
-│   ├── GymCanvas.java        # Canvas de animación del gimnasio
-│   ├── ThreadDashboard.java  # Tablero de estados de hilos
-│   └── BPMNMonitor.java      # Monitor de estados BPMN
-├── Servicios/
-│   └── RemoteAuthService.java # Servicio de autorización remota
-└── Utilidades/
-    ├── Params.java           # Parámetros de configuración
-    ├── Log.java              # Sistema de logging
-    └── Solicitud.java        # Objeto de solicitud de autorización
-
-
 --------------------------------Instalación y Ejecución--------------------------------------------
+
+
 Requisitos
 Java JDK: 17 o superior
 IDE: IntelliJ IDEA, Eclipse, o VS Code
