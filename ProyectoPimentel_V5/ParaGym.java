@@ -8,12 +8,13 @@ public class ParaGym {
     private JFrame frameLog;
     private JFrame frameGym;
     private JFrame frameBPMN; 
+    private JFrame frameCredits;
 
     private JSpinner spClientes, spLimpieza, spToallasMax, spDuchasTot, spToallasIni;
     private JSpinner spPasoTorniquete, spUsoMaquina, spDucha, spLimpiezaDucha, spPausaLimpieza, spInterLlegada;
     private JSpinner spToallasPorLote;
 
-    private JButton btnIniciar, btnDetener, btnVerTablero, btnVerLog, btnVerBPMN;  
+    private JButton btnIniciar, btnDetener, btnVerTablero, btnVerLog, btnVerBPMN, btnCreditos;  
 
     private SimulationController controller;
     private ThreadDashboard dashboard;
@@ -78,20 +79,23 @@ public class ParaGym {
         btnDetener    = new JButton("Detener");
         btnVerTablero = new JButton("Ver tablero");
         btnVerLog     = new JButton("Ver log");
-        btnVerBPMN    = new JButton("Ver Monitor BPMN");  
+        btnVerBPMN    = new JButton("Ver Monitor BPMN"); 
+        btnCreditos   = new JButton("Créditos"); 
 
         btnIniciar.addActionListener(e -> onIniciar());
         btnDetener.addActionListener(e -> onDetener());
         btnVerTablero.addActionListener(e -> mostrarTablero());
         btnVerLog.addActionListener(e -> mostrarLog());
-        btnVerBPMN.addActionListener(e -> mostrarBPMN());  
+        btnVerBPMN.addActionListener(e -> mostrarBPMN()); 
+        btnCreditos.addActionListener(e -> mostrarCreditos()); 
 
         JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.LEFT));
         panelBotones.add(btnIniciar);
         panelBotones.add(btnDetener);
         panelBotones.add(btnVerTablero);
         panelBotones.add(btnVerLog);
-        panelBotones.add(btnVerBPMN);  
+        panelBotones.add(btnVerBPMN); 
+        panelBotones.add(btnCreditos); 
 
         frame.getContentPane().setLayout(new BorderLayout());
         frame.getContentPane().add(form, BorderLayout.CENTER);
@@ -132,6 +136,10 @@ public class ParaGym {
         frameBPMN = bpmnMonitor;  
         frameBPMN.setLocationRelativeTo(frame);
         frameBPMN.setVisible(false);
+
+        frameCredits = new CreditsPanel();
+        frameCredits.setLocationRelativeTo(frame);
+        frameCredits.setVisible(false);
 
         // Logger
         Log.setSalida(texto -> {
@@ -214,6 +222,10 @@ public class ParaGym {
 
     private void mostrarBPMN() { 
         frameBPMN.setVisible(true);
+    }
+
+    private void mostrarCreditos() {
+        frameCredits.setVisible(true);
     }
 
     private static void addRow(JPanel p, GridBagConstraints c, int row, String label, JComponent comp) {
